@@ -7,6 +7,23 @@ services:
     command: pnpm run start:dev reservations
     ports:
       - "3000:3000"
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017/sleepr
+    volumes:
+      - .:/usr/src/app
+    depends_on:
+      - mongodb
+
+  auth:
+    build:
+      context: .
+      dockerfile: ./apps/auth/Dockerfile
+      target: development
+    command: pnpm run start:dev auth
+    ports:
+      - "3001:3001"
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017/sleepr
     volumes:
       - .:/usr/src/app
     depends_on:
