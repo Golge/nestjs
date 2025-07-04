@@ -21,8 +21,8 @@ import {
       isGlobal: true,
       validationSchema: Joi.object({
         // Define your validation schema here if needed
-        MONGODB_URI : Joi.string().required(),
-        PORT        : Joi.number().required(),
+        MONGODB_URI: Joi.string().required(),
+        PORT: Joi.number().required(),
       }),
     }),
   ],
